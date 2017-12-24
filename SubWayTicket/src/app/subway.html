@@ -1,0 +1,19 @@
+﻿<section *ngIf="status==Status.Start">
+    <div style="position: fixed;top: 40%;left: 40%;">
+        <h1 style="color:blue">歡迎來到台鐵官方網站</h1>
+        <button (click)="enterBuyStatus()">進入台鐵購票中心</button>
+    </div>
+</section>
+<section *ngIf="status==Status.Buy">
+    <button (click)="backtoStart()">回首頁</button>
+    <input type="number" [(ngModel)]="numberTicket"/>
+    <select>
+        <option value="成人票:450元">成人票:450元</option>
+        <option value="兒童票:350元">兒童票:350元</option>
+    </select>
+    <button (click)="finializePurchaseStatus()">購票</button>
+</section>
+<section *ngIf="status==Status.Finish">
+    <button (click)="backtoStart()">回首頁</button>
+    你購買了{{numberTicket}}張{{typeTicket}}總共{{amount}}元
+</section>
