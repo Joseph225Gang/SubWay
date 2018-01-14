@@ -10,13 +10,15 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var subway_component_1 = require("./subway.component");
+var ng2_translate_1 = require("ng2-translate");
+var integer_directive_1 = require("./integer.directive");
 var SubWayModule = (function () {
     function SubWayModule() {
     }
     SubWayModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [subway_component_1.SubWayComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_translate_1.TranslateModule.forRoot()],
+            declarations: [subway_component_1.SubWayComponent, integer_directive_1.IntegerOnlyDirective],
             bootstrap: [subway_component_1.SubWayComponent]
         })
     ], SubWayModule);

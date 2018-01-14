@@ -1,0 +1,15 @@
+﻿{
+  "HOME": {
+    "TITLE": "哈囉Angular 2與ng2translate套件!",
+    "SELECT": "選擇語言",
+    "WELCOME": "歡迎來到台鐵官方網站",
+    "ENTERCENTER": "進入台鐵購票中心",
+    "BACKTOSTART": "回首頁",
+    "TAIWANESE": "繁體中文",
+    "ENGLISH": "英文",
+    "BOOKING": "查詢/取消訂票",
+    "SEARCHBOOKING": "查詢訂票記錄",
+    "CANCELBOOKING": "取消訂票記錄",
+    "SCHEDULTSEARCH":  "時刻表查詢"
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+  "HOME": {
+    "TITLE": "Hello Angular 2 with ng2-translate!",
+    "SELECT": "Change language",
+    "WELCOME": "Welcome to Taiwan SubWay official website",
+    "ENTERCENTER": "Enter the center of Taiwan SubWay",
+    "BACKTOSTART": "Go Back to Home Page",
+    "TAIWANESE": "Traditional Chinese",
+    "ENGLISH": "English",
+    "BOOKING": "Search/Cancel Booking",
+    "SEARCHBOOKING": "Search Booking record",
+    "CANCELBOOKING": "Cancel Booking record",
+    "SCHEDULTSEARCH":  "Search Schedult"
+  }
+}

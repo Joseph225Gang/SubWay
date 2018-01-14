@@ -100,10 +100,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="script\jquery-ui.css" />
+    <Content Include="script\jquery-ui.js" />
     <Content Include="src\tsconfig.json" />
     <Content Include="bs-config.json" />
     <Content Include="package.json" />
     <Content Include="tslint.json" />
+    <Content Include="src\i18n\en.json" />
+    <Content Include="src\i18n\fr.json" />
+    <Content Include="src\i18n\zh-tw.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -126,9 +131,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\integer.directive.ts" />
     <TypeScriptCompile Include="src\app\subway.component.ts" />
     <TypeScriptCompile Include="src\app\subway.module.ts" />
     <TypeScriptCompile Include="src\app\subway.service.ts" />
+    <TypeScriptCompile Include="src\typings.d.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <ItemGroup>

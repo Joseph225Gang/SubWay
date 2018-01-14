@@ -1,15 +1,66 @@
-﻿<section *ngIf="status==Status.Start">
+﻿<style>
+    input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+    #languageChoice{
+        width:250px;
+        height:100px;
+        display:inline;
+        background-color:#FFBB00;
+        color:	#BB5500;
+        margin:0;
+        font-size:35px;
+        cursor:pointer;
+    }
+    .dropdown-menu{
+        background-color:#e08d4b !important;
+    }
+
+    .dropdown-menu li{
+        color:white !important;
+    }
+</style>
+<section *ngIf="status==Status.Start">
+    <div id="languageChoice" (click)="translate.use('zh-tw')">{{'HOME.TAIWANESE' | translate }}</div>
+    <div id="languageChoice" (click)="translate.use('en')">{{'HOME.ENGLISH' | translate }}</div>
+    <div class="dropdown" style="display:inline">
+        <button class="btn btn-default dropdown-toggle" style="background-color:#FFBB00;color:	#BB5500;font-size:25px;" type="button" data-toggle="dropdown">
+            {{'HOME.BOOKING' | translate }}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">{{'HOME.SEARCHBOOKING' | translate }}</a></li>
+            <li class="divider"></li>
+            <li><a href="#">{{'HOME.CANCELBOOKING' | translate }}</a></li>
+            <li class="divider"></li>
+            <li><a href="#">{{'HOME.SCHEDULTSEARCH' | translate }}</a></li>
+        </ul>
+    </div>
+    <div>
+        <!--<label>
+            {{ 'HOME.SELECT' | translate }}
+            <select #langSelect (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+            </select>
+        </label>-->
+    </div>
     <div style="position: fixed;top: 40%;left: 40%;">
-        <h1 style="color:blue">歡迎來到台鐵官方網站</h1>
-        <button (click)="enterBuyStatus()">進入台鐵購票中心</button>
+        <h1 style="color:blue">{{'HOME.WELCOME'|translate}}</h1>
+        <button (click)="enterBuyStatus()">{{'HOME.ENTERCENTER'|translate}}</button>
     </div>
 </section>
 <section *ngIf="status==Status.Buy">
-    <button (click)="backtoStart()">回首頁</button>
-    <input type="number" [(ngModel)]="numberTicket"/>
+    <button (click)="backtoStart()">{{'HOME.BACKTOSTART'|translate}}</button><br />
+    去程時間<input type="text" id="destinationDate" (mouseenter)="setDatePicker()">
+    回程時間<input type="text" id="homeDate" (mouseenter)="setDatePicker()"><br />
+    <input type="number" min="0" myIntegerOnly [(ngModel)]="numberTicket"/>
     <select>
-        <option value="成人票:450元">成人票:450元</option>
-        <option value="兒童票:350元">兒童票:350元</option>
+        <option value="成人票:450元">成人票:{{450| currency:'USD':true:'1.2-2'}}</option>
+        <option value="兒童票:350元">兒童票:{{350| currency:'USD':true:'1.2-2'}}</option>
     </select>
     <button (click)="finializePurchaseStatus()">購票</button>
 </section>
