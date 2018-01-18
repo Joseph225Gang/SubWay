@@ -25,3 +25,9 @@ export enum Status {
     Buy = 2,
     Finish = 3
 }
+
+export class TicketInformation {
+    from: string = "";
+    to: string = "";
+    amount: number = 0;
+}

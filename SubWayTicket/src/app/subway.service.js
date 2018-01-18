@@ -39,4 +39,13 @@ var Status;
     Status[Status["Buy"] = 2] = "Buy";
     Status[Status["Finish"] = 3] = "Finish";
 })(Status = exports.Status || (exports.Status = {}));
+var TicketInformation = (function () {
+    function TicketInformation() {
+        this.from = "";
+        this.to = "";
+        this.amount = 0;
+    }
+    return TicketInformation;
+}());
+exports.TicketInformation = TicketInformation;
 //# sourceMappingURL=subway.service.js.map

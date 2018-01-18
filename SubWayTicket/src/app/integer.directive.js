@@ -14,7 +14,7 @@ var IntegerOnlyDirective = (function () {
     function IntegerOnlyDirective(el) {
         this.el = el;
         // Allow decimal numbers and negative values
-        this.regex = new RegExp(/^\d+$/g);
+        this.regex = new RegExp(/^[1-9]+([0-9]*){0,1}$/g);
         // Allow key codes for special events. Reflect :
         // Backspace, tab, end, home
         this.specialKeys = ['Backspace', 'Tab', 'End', 'Home'];

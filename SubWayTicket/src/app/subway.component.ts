@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Status, SubWayService } from './subway.service';
+import { Status, SubWayService, TicketInformation } from './subway.service';
 import { TranslateService } from 'ng2-translate';
 
 @Component({
@@ -19,6 +19,9 @@ export class SubWayComponent implements AfterViewInit
     Status = Status;
     status: Status = Status.Start;
     destinationList: any[] = [];
+    adultTicketList: TicketInformation[] = [];
+    childTicketList: TicketInformation[] = [];
+    currentTicketList: TicketInformation[] = [];
     numberTicket: number = 0;
     typeTicket: string = '';
     amount: number = 0;
@@ -26,7 +29,8 @@ export class SubWayComponent implements AfterViewInit
     ngAfterViewInit() {
         this.subwayService.asyncGetItineraryPrice().subscribe(
             resp => {
-                console.log(resp);
+                this.adultTicketList = resp.Adult;
+                this.childTicketList = resp.Child;
             },
             error => {
                 alert(error.json().message);
@@ -38,7 +42,6 @@ export class SubWayComponent implements AfterViewInit
         this.status = Status.Buy;
         this.subwayService.asyncGetDestinationList().subscribe(
             resp => {
-                console.log(resp);
                 this.destinationList = resp;
             },
             error => {
@@ -50,13 +53,24 @@ export class SubWayComponent implements AfterViewInit
         $('#destinationDate').datepicker();
         $('#homeDate').datepicker();
     }
+
     finializePurchaseStatus() {
-        alert($('select').eq(0).val());
-        alert($('select').eq(1).val());
-        alert($('input').eq(2).val());
         this.status = Status.Finish;
-        this.typeTicket = $('select').val().toString().substring(0, 3);
-        this.amount = this.numberTicket * parseInt($('select').val().toString().substring(4, 7));
+        this.amount = this.getFinalPrice();
+    }
+
+    getFinalPrice(): number {
+        let fromDestination = $('select').eq(0).val();
+        let toDestination = $('select').eq(1).val();
+        if ($('select').eq(2).val() == 'adult')
+            this.currentTicketList = this.adultTicketList;
+        else
+            this.currentTicketList = this.childTicketList;
+        let pos = this.adultTicketList.filter(function (item: any) {
+            return item.from == fromDestination && item.to == toDestination;
+        })
+        this.numberTicket = parseInt($('input').eq(2).val().toString());
+        return this.numberTicket * pos[0].amount;
     }
 
     backtoStart() {

@@ -68,8 +68,8 @@ input[type=number]::-webkit-outer-spin-button {
     <br />
     <input type="number" min="0" myIntegerOnly [(ngModel)]="numberTicket"/>
     <select>
-        <option value="成人票:450元">成人票:{{450| currency:'USD':true:'1.2-2'}}</option>
-        <option value="兒童票:350元">兒童票:{{350| currency:'USD':true:'1.2-2'}}</option>
+        <option value="adult">成人票:{{450| currency:'USD':true:'1.2-2'}}</option>
+        <option value="child">兒童票:{{350| currency:'USD':true:'1.2-2'}}</option>
     </select>
     <button (click)="finializePurchaseStatus()">購票</button>
 </section>

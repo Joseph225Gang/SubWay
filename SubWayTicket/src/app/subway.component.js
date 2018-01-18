@@ -19,6 +19,9 @@ var SubWayComponent = (function () {
         this.Status = subway_service_1.Status;
         this.status = subway_service_1.Status.Start;
         this.destinationList = [];
+        this.adultTicketList = [];
+        this.childTicketList = [];
+        this.currentTicketList = [];
         this.numberTicket = 0;
         this.typeTicket = '';
         this.amount = 0;
@@ -28,8 +31,11 @@ var SubWayComponent = (function () {
         translate.use(browserLang.match(/en|zh-tw/) ? browserLang : 'zh-tw');
     }
     SubWayComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
         this.subwayService.asyncGetItineraryPrice().subscribe(function (resp) {
-            console.log(resp);
+            _this.adultTicketList = resp.Adult;
+            _this.childTicketList = resp.Child;
+            console.log(_this.adultTicketList);
         }, function (error) {
             alert(error.json().message);
         });
@@ -38,7 +44,6 @@ var SubWayComponent = (function () {
         var _this = this;
         this.status = subway_service_1.Status.Buy;
         this.subwayService.asyncGetDestinationList().subscribe(function (resp) {
-            console.log(resp);
             _this.destinationList = resp;
         }, function (error) {
         });
@@ -48,12 +53,21 @@ var SubWayComponent = (function () {
         $('#homeDate').datepicker();
     };
     SubWayComponent.prototype.finializePurchaseStatus = function () {
-        alert($('select').eq(0).val());
-        alert($('select').eq(1).val());
-        alert($('input').eq(2).val());
         this.status = subway_service_1.Status.Finish;
-        this.typeTicket = $('select').val().toString().substring(0, 3);
-        this.amount = this.numberTicket * parseInt($('select').val().toString().substring(4, 7));
+        this.amount = this.getFinalPrice();
+    };
+    SubWayComponent.prototype.getFinalPrice = function () {
+        var fromDestination = $('select').eq(0).val();
+        var toDestination = $('select').eq(1).val();
+        if ($('select').eq(2).val() == 'adult')
+            this.currentTicketList = this.adultTicketList;
+        else
+            this.currentTicketList = this.childTicketList;
+        var pos = this.adultTicketList.filter(function (item) {
+            return item.from == fromDestination && item.to == toDestination;
+        });
+        this.numberTicket = parseInt($('input').eq(2).val().toString());
+        return this.numberTicket * pos[0].amount;
     };
     SubWayComponent.prototype.backtoStart = function () {
         location.reload();
