@@ -24,6 +24,14 @@ export class SubWayComponent implements AfterViewInit
     amount: number = 0;
 
     ngAfterViewInit() {
+        this.subwayService.asyncGetItineraryPrice().subscribe(
+            resp => {
+                console.log(resp);
+            },
+            error => {
+                alert(error.json().message);
+            }
+            )
     }
 
     enterBuyStatus() { 
@@ -43,6 +51,9 @@ export class SubWayComponent implements AfterViewInit
         $('#homeDate').datepicker();
     }
     finializePurchaseStatus() {
+        alert($('select').eq(0).val());
+        alert($('select').eq(1).val());
+        alert($('input').eq(2).val());
         this.status = Status.Finish;
         this.typeTicket = $('select').val().toString().substring(0, 3);
         this.amount = this.numberTicket * parseInt($('select').val().toString().substring(4, 7));

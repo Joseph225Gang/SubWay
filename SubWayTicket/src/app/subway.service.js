@@ -21,6 +21,11 @@ var SubWayService = (function () {
             return resp.json();
         });
     };
+    SubWayService.prototype.asyncGetItineraryPrice = function () {
+        return this.http.get('./utility/itinerary.json').map(function (resp) {
+            return resp.json();
+        });
+    };
     SubWayService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

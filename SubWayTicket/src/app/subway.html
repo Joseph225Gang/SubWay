@@ -58,12 +58,12 @@ input[type=number]::-webkit-outer-spin-button {
     去程時間<input type="text" id="destinationDate" (mouseenter)="setDatePicker()">
     去程地點:
     <select>
-        <option *ngFor="let item of destinationList.Destination;let i=index" value="item.destination">{{item.destination}}</option>
+        <option *ngFor="let item of destinationList.Destination;let i=index" [value]="item.destination">{{item.destination}}</option>
     </select>
     回程時間<input type="text" id="homeDate" (mouseenter)="setDatePicker()">
     回程地點
     <select>
-        <option *ngFor="let item of destinationList.Destination;let i=index" value="item.destination">{{item.destination}}</option>
+        <option *ngFor="let item of destinationList.Destination;let i=index" [value]="item.destination">{{item.destination}}</option>
     </select>
     <br />
     <input type="number" min="0" myIntegerOnly [(ngModel)]="numberTicket"/>

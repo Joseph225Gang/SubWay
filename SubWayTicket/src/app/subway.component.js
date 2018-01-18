@@ -28,6 +28,11 @@ var SubWayComponent = (function () {
         translate.use(browserLang.match(/en|zh-tw/) ? browserLang : 'zh-tw');
     }
     SubWayComponent.prototype.ngAfterViewInit = function () {
+        this.subwayService.asyncGetItineraryPrice().subscribe(function (resp) {
+            console.log(resp);
+        }, function (error) {
+            alert(error.json().message);
+        });
     };
     SubWayComponent.prototype.enterBuyStatus = function () {
         var _this = this;
@@ -43,6 +48,9 @@ var SubWayComponent = (function () {
         $('#homeDate').datepicker();
     };
     SubWayComponent.prototype.finializePurchaseStatus = function () {
+        alert($('select').eq(0).val());
+        alert($('select').eq(1).val());
+        alert($('input').eq(2).val());
         this.status = subway_service_1.Status.Finish;
         this.typeTicket = $('select').val().toString().substring(0, 3);
         this.amount = this.numberTicket * parseInt($('select').val().toString().substring(4, 7));

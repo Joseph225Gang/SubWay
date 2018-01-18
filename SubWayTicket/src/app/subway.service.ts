@@ -12,7 +12,12 @@ export class SubWayService {
         return this.http.get('./utility/destination.json').map((resp: Response) => {
             return resp.json();
         });
-      }
+    }
+    asyncGetItineraryPrice() {
+        return this.http.get('./utility/itinerary.json').map((resp: Response) => {
+            return resp.json();
+        });
+    }
 }
 
 export enum Status {
