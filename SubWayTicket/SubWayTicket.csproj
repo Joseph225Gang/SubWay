@@ -109,6 +109,7 @@
     <Content Include="src\i18n\en.json" />
     <Content Include="src\i18n\fr.json" />
     <Content Include="src\i18n\zh-tw.json" />
+    <Content Include="src\utility\destination.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

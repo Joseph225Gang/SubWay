@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { Status } from './subway.service';
+import { Component, AfterViewInit } from '@angular/core';
+import { Status, SubWayService } from './subway.service';
 import { TranslateService } from 'ng2-translate';
 
 @Component({
     selector: 'my-app',
     templateUrl: './subway.html',
+    providers: [SubWayService]
 })
-export class SubWayComponent
+export class SubWayComponent implements AfterViewInit
 {
-    constructor(private translate: TranslateService) {
+    constructor(private translate: TranslateService, private subwayService: SubWayService) {
         translate.addLangs(["en", "zh-tw"]);
         translate.setDefaultLang('zh-tw');
 
@@ -17,12 +18,24 @@ export class SubWayComponent
     }
     Status = Status;
     status: Status = Status.Start;
+    destinationList: any[] = [];
     numberTicket: number = 0;
     typeTicket: string = '';
     amount: number = 0;
 
+    ngAfterViewInit() {
+    }
+
     enterBuyStatus() { 
         this.status = Status.Buy;
+        this.subwayService.asyncGetDestinationList().subscribe(
+            resp => {
+                console.log(resp);
+                this.destinationList = resp;
+            },
+            error => {
+            }
+        );
     }
 
     setDatePicker() {

@@ -56,7 +56,16 @@ input[type=number]::-webkit-outer-spin-button {
 <section *ngIf="status==Status.Buy">
     <button (click)="backtoStart()">{{'HOME.BACKTOSTART'|translate}}</button><br />
     去程時間<input type="text" id="destinationDate" (mouseenter)="setDatePicker()">
-    回程時間<input type="text" id="homeDate" (mouseenter)="setDatePicker()"><br />
+    去程地點:
+    <select>
+        <option *ngFor="let item of destinationList.Destination;let i=index" value="item.destination">{{item.destination}}</option>
+    </select>
+    回程時間<input type="text" id="homeDate" (mouseenter)="setDatePicker()">
+    回程地點
+    <select>
+        <option *ngFor="let item of destinationList.Destination;let i=index" value="item.destination">{{item.destination}}</option>
+    </select>
+    <br />
     <input type="number" min="0" myIntegerOnly [(ngModel)]="numberTicket"/>
     <select>
         <option value="成人票:450元">成人票:{{450| currency:'USD':true:'1.2-2'}}</option>

@@ -31,3 +31,36 @@ D:\c sharp\Visual Studio 2015\SubWayTicket\SubWayTicket\bin\Microsoft.Applicatio
 D:\c sharp\Visual Studio 2015\SubWayTicket\SubWayTicket\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\c sharp\Visual Studio 2015\SubWayTicket\SubWayTicket\obj\Debug\SubWayTicket.dll
 D:\c sharp\Visual Studio 2015\SubWayTicket\SubWayTicket\obj\Debug\SubWayTicket.pdb
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\ApplicationInsights.config
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\csc.exe
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\System.Collections.Immutable.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\System.Reflection.Metadata.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\vbc.exe
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\VBCSCompiler.exe
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\roslyn\VBCSCompiler.exe.config
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\SubWayTicket.dll.config
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\SubWayTicket.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\SubWayTicket.pdb
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.DependencyCollector.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.Web.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.WindowsServer.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.ApplicationInsights.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.DependencyCollector.xml
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.Web.xml
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.AI.WindowsServer.xml
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.ApplicationInsights.xml
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\obj\Debug\SubWayTicket.csprojResolveAssemblyReference.cache
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\obj\Debug\SubWayTicket.dll
+D:\Visual Studio\TaiwanSubWay\SubWayTicket\obj\Debug\SubWayTicket.pdb

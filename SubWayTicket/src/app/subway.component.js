@@ -13,10 +13,12 @@ var core_1 = require("@angular/core");
 var subway_service_1 = require("./subway.service");
 var ng2_translate_1 = require("ng2-translate");
 var SubWayComponent = (function () {
-    function SubWayComponent(translate) {
+    function SubWayComponent(translate, subwayService) {
         this.translate = translate;
+        this.subwayService = subwayService;
         this.Status = subway_service_1.Status;
         this.status = subway_service_1.Status.Start;
+        this.destinationList = [];
         this.numberTicket = 0;
         this.typeTicket = '';
         this.amount = 0;
@@ -25,8 +27,16 @@ var SubWayComponent = (function () {
         var browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|zh-tw/) ? browserLang : 'zh-tw');
     }
+    SubWayComponent.prototype.ngAfterViewInit = function () {
+    };
     SubWayComponent.prototype.enterBuyStatus = function () {
+        var _this = this;
         this.status = subway_service_1.Status.Buy;
+        this.subwayService.asyncGetDestinationList().subscribe(function (resp) {
+            console.log(resp);
+            _this.destinationList = resp;
+        }, function (error) {
+        });
     };
     SubWayComponent.prototype.setDatePicker = function () {
         $('#destinationDate').datepicker();
@@ -44,8 +54,9 @@ var SubWayComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: './subway.html',
+            providers: [subway_service_1.SubWayService]
         }),
-        __metadata("design:paramtypes", [ng2_translate_1.TranslateService])
+        __metadata("design:paramtypes", [ng2_translate_1.TranslateService, subway_service_1.SubWayService])
     ], SubWayComponent);
     return SubWayComponent;
 }());

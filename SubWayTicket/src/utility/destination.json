@@ -1,0 +1,44 @@
+﻿{
+  "Destination": [
+    {
+      "destination": "基隆"
+    },
+    {
+      "destination": "台北"
+    },
+    {
+      "destination": "新北"
+    },
+    {
+      "destination": "桃園"
+    },
+    {
+      "destination": "新竹"
+    },
+    {
+      "destination": "苗栗"
+    },
+    {
+      "destination": "花蓮"
+    },
+    {
+      "destination": "台東"
+    },
+    {
+      "destination": "南投"
+    },
+    {
+      "destination": "台中"
+    },
+    {
+      "destination": "台南"
+    },
+    {
+      "destination": "花蓮"
+    },
+    {
+      "destination": "屏東"
+    }
+  ]
+
+}

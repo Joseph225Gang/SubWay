@@ -1,6 +1,18 @@
-﻿export class SubWayService
-{
-    name = 'Angular';
+﻿import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+
+@Injectable()
+export class SubWayService {
+    constructor(
+        private http: Http
+    ) { };
+
+    asyncGetDestinationList() {
+        return this.http.get('./utility/destination.json').map((resp: Response) => {
+            return resp.json();
+        });
+      }
 }
 
 export enum Status {
