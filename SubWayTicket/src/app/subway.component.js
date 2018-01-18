@@ -35,7 +35,6 @@ var SubWayComponent = (function () {
         this.subwayService.asyncGetItineraryPrice().subscribe(function (resp) {
             _this.adultTicketList = resp.Adult;
             _this.childTicketList = resp.Child;
-            console.log(_this.adultTicketList);
         }, function (error) {
             alert(error.json().message);
         });
@@ -63,7 +62,7 @@ var SubWayComponent = (function () {
             this.currentTicketList = this.adultTicketList;
         else
             this.currentTicketList = this.childTicketList;
-        var pos = this.adultTicketList.filter(function (item) {
+        var pos = this.currentTicketList.filter(function (item) {
             return item.from == fromDestination && item.to == toDestination;
         });
         this.numberTicket = parseInt($('input').eq(2).val().toString());

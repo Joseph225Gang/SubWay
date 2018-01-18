@@ -66,9 +66,9 @@ export class SubWayComponent implements AfterViewInit
             this.currentTicketList = this.adultTicketList;
         else
             this.currentTicketList = this.childTicketList;
-        let pos = this.adultTicketList.filter(function (item: any) {
+        let pos = this.currentTicketList.filter(function (item: any) {
             return item.from == fromDestination && item.to == toDestination;
-        })
+        });
         this.numberTicket = parseInt($('input').eq(2).val().toString());
         return this.numberTicket * pos[0].amount;
     }
