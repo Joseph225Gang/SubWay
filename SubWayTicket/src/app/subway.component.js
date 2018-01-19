@@ -23,8 +23,10 @@ var SubWayComponent = (function () {
         this.childTicketList = [];
         this.currentTicketList = [];
         this.numberTicket = 0;
-        this.typeTicket = '';
+        this.adultAmount = 0;
+        this.childAmount = 0;
         this.amount = 0;
+        this.totalAmount = 0;
         translate.addLangs(["en", "zh-tw"]);
         translate.setDefaultLang('zh-tw');
         var browserLang = translate.getBrowserLang();
@@ -43,7 +45,10 @@ var SubWayComponent = (function () {
         var _this = this;
         this.status = subway_service_1.Status.Buy;
         this.subwayService.asyncGetDestinationList().subscribe(function (resp) {
+            _this.setDatePicker();
             _this.destinationList = resp;
+            _this.showPrice();
+            _this.currentLang = _this.translate.currentLang;
         }, function (error) {
         });
     };
@@ -53,20 +58,29 @@ var SubWayComponent = (function () {
     };
     SubWayComponent.prototype.finializePurchaseStatus = function () {
         this.status = subway_service_1.Status.Finish;
-        this.amount = this.getFinalPrice();
+        this.totalAmount = this.getFinalPrice();
     };
-    SubWayComponent.prototype.getFinalPrice = function () {
+    SubWayComponent.prototype.showPrice = function () {
         var fromDestination = $('select').eq(0).val();
         var toDestination = $('select').eq(1).val();
-        if ($('select').eq(2).val() == 'adult')
-            this.currentTicketList = this.adultTicketList;
-        else
-            this.currentTicketList = this.childTicketList;
-        var pos = this.currentTicketList.filter(function (item) {
+        var adultPos = this.adultTicketList.filter(function (item) {
             return item.from == fromDestination && item.to == toDestination;
         });
+        var childPos = this.childTicketList.filter(function (item) {
+            return item.from == fromDestination && item.to == toDestination;
+        });
+        if (adultPos.length == 0 || childPos.length == 0)
+            return;
+        this.adultAmount = adultPos[0].amount;
+        this.childAmount = childPos[0].amount;
+        if ($('select').eq(2).val() == 'adult')
+            this.amount = typeof (adultPos[0].amount) != 'undefined' ? this.adultAmount : 0;
+        else
+            this.amount = typeof (childPos[0].amount) != 'undefined' ? this.childAmount : 0;
+    };
+    SubWayComponent.prototype.getFinalPrice = function () {
         this.numberTicket = parseInt($('input').eq(2).val().toString());
-        return this.numberTicket * pos[0].amount;
+        return this.numberTicket * this.amount;
     };
     SubWayComponent.prototype.backtoStart = function () {
         location.reload();

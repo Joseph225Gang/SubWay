@@ -20,8 +20,8 @@ input[type=number]::-webkit-outer-spin-button {
         background-color:#e08d4b !important;
     }
 
-    .dropdown-menu li{
-        color:white !important;
+    li a{
+        color:white;
     }
 </style>
 <section *ngIf="status==Status.Start">
@@ -41,12 +41,6 @@ input[type=number]::-webkit-outer-spin-button {
         </ul>
     </div>
     <div>
-        <!--<label>
-            {{ 'HOME.SELECT' | translate }}
-            <select #langSelect (change)="translate.use(langSelect.value)">
-                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-            </select>
-        </label>-->
     </div>
     <div style="position: fixed;top: 40%;left: 40%;">
         <h1 style="color:blue">{{'HOME.WELCOME'|translate}}</h1>
@@ -55,25 +49,25 @@ input[type=number]::-webkit-outer-spin-button {
 </section>
 <section *ngIf="status==Status.Buy">
     <button (click)="backtoStart()">{{'HOME.BACKTOSTART'|translate}}</button><br />
-    去程時間<input type="text" id="destinationDate" (mouseenter)="setDatePicker()">
+    去程時間<input type="text" id="destinationDate">
     去程地點:
-    <select>
+    <select (change)="showPrice()">
         <option *ngFor="let item of destinationList.Destination;let i=index" [value]="item.destination">{{item.destination}}</option>
     </select>
-    回程時間<input type="text" id="homeDate" (mouseenter)="setDatePicker()">
+    回程時間<input type="text" id="homeDate">
     回程地點
-    <select>
+    <select (change)="showPrice()">
         <option *ngFor="let item of destinationList.Destination;let i=index" [value]="item.destination">{{item.destination}}</option>
     </select>
     <br />
     <input type="number" min="0" myIntegerOnly [(ngModel)]="numberTicket"/>
-    <select>
-        <option value="adult">成人票:{{450| currency:'USD':true:'1.2-2'}}</option>
-        <option value="child">兒童票:{{350| currency:'USD':true:'1.2-2'}}</option>
+    <select (change)="showPrice()">
+        <option value="adult">成人票:{{adultAmount| currency:'USD':true:'1.2-2'}}</option>
+        <option value="child">兒童票:{{childAmount| currency:'USD':true:'1.2-2'}}</option>
     </select>
     <button (click)="finializePurchaseStatus()">購票</button>
 </section>
 <section *ngIf="status==Status.Finish">
     <button (click)="backtoStart()">回首頁</button>
-    你購買了{{numberTicket}}張{{typeTicket}}總共{{amount}}元
+    你購買了{{numberTicket}}張總共{{totalAmount}}元
 </section>

@@ -12,7 +12,6 @@ export class SubWayComponent implements AfterViewInit
     constructor(private translate: TranslateService, private subwayService: SubWayService) {
         translate.addLangs(["en", "zh-tw"]);
         translate.setDefaultLang('zh-tw');
-
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|zh-tw/) ? browserLang : 'zh-tw');
     }
@@ -23,8 +22,11 @@ export class SubWayComponent implements AfterViewInit
     childTicketList: TicketInformation[] = [];
     currentTicketList: TicketInformation[] = [];
     numberTicket: number = 0;
-    typeTicket: string = '';
+    adultAmount: number = 0;
+    childAmount: number = 0;
     amount: number = 0;
+    totalAmount: number = 0;
+    currentLang: string;
 
     ngAfterViewInit() {
         this.subwayService.asyncGetItineraryPrice().subscribe(
@@ -42,7 +44,10 @@ export class SubWayComponent implements AfterViewInit
         this.status = Status.Buy;
         this.subwayService.asyncGetDestinationList().subscribe(
             resp => {
+                this.setDatePicker();
                 this.destinationList = resp;
+                this.showPrice();
+                this.currentLang = this.translate.currentLang;
             },
             error => {
             }
@@ -56,21 +61,32 @@ export class SubWayComponent implements AfterViewInit
 
     finializePurchaseStatus() {
         this.status = Status.Finish;
-        this.amount = this.getFinalPrice();
+        this.totalAmount = this.getFinalPrice();
+    }
+
+    showPrice() {
+        let fromDestination = $('select').eq(0).val();
+        let toDestination = $('select').eq(1).val();
+        let adultPos = this.adultTicketList.filter(function (item: any) {
+            return item.from == fromDestination && item.to == toDestination;
+        });
+        let childPos = this.childTicketList.filter(function (item: any) {
+            return item.from == fromDestination && item.to == toDestination;
+        });
+
+        if (adultPos.length == 0 || childPos.length == 0)
+            return;
+        this.adultAmount = adultPos[0].amount;
+        this.childAmount = childPos[0].amount;
+        if ($('select').eq(2).val() == 'adult')
+            this.amount = typeof (adultPos[0].amount) != 'undefined' ? this.adultAmount : 0;
+        else
+            this.amount = typeof (childPos[0].amount) != 'undefined'? this.childAmount : 0;
     }
 
     getFinalPrice(): number {
-        let fromDestination = $('select').eq(0).val();
-        let toDestination = $('select').eq(1).val();
-        if ($('select').eq(2).val() == 'adult')
-            this.currentTicketList = this.adultTicketList;
-        else
-            this.currentTicketList = this.childTicketList;
-        let pos = this.currentTicketList.filter(function (item: any) {
-            return item.from == fromDestination && item.to == toDestination;
-        });
         this.numberTicket = parseInt($('input').eq(2).val().toString());
-        return this.numberTicket * pos[0].amount;
+        return this.numberTicket * this.amount;
     }
 
     backtoStart() {
