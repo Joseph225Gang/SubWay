@@ -12,10 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var subway_service_1 = require("./subway.service");
 var ng2_translate_1 = require("ng2-translate");
+var router_1 = require("@angular/router");
 var SubWayComponent = (function () {
-    function SubWayComponent(translate, subwayService) {
+    function SubWayComponent(translate, subwayService, router) {
         this.translate = translate;
         this.subwayService = subwayService;
+        this.router = router;
         this.Status = subway_service_1.Status;
         this.status = subway_service_1.Status.Start;
         this.destinationList = [];
@@ -40,6 +42,9 @@ var SubWayComponent = (function () {
         }, function (error) {
             alert(error.json().message);
         });
+    };
+    SubWayComponent.prototype.navigateSearchSedule = function () {
+        this.status = subway_service_1.Status.None;
     };
     SubWayComponent.prototype.enterBuyStatus = function () {
         var _this = this;
@@ -91,7 +96,7 @@ var SubWayComponent = (function () {
             templateUrl: './subway.html',
             providers: [subway_service_1.SubWayService]
         }),
-        __metadata("design:paramtypes", [ng2_translate_1.TranslateService, subway_service_1.SubWayService])
+        __metadata("design:paramtypes", [ng2_translate_1.TranslateService, subway_service_1.SubWayService, router_1.Router])
     ], SubWayComponent);
     return SubWayComponent;
 }());

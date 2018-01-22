@@ -24,28 +24,32 @@ input[type=number]::-webkit-outer-spin-button {
         color:white;
     }
 </style>
+<section *ngIf="status==Status.None">
+    <searchSedule-app></searchSedule-app>
+</section>
 <section *ngIf="status==Status.Start">
-    <div id="languageChoice" (click)="translate.use('zh-tw')">{{'HOME.TAIWANESE' | translate }}</div>
-    <div id="languageChoice" (click)="translate.use('en')">{{'HOME.ENGLISH' | translate }}</div>
-    <div class="dropdown" style="display:inline">
-        <button class="btn btn-default dropdown-toggle" style="background-color:#FFBB00;color:	#BB5500;font-size:25px;" type="button" data-toggle="dropdown">
-            {{'HOME.BOOKING' | translate }}
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">{{'HOME.SEARCHBOOKING' | translate }}</a></li>
-            <li class="divider"></li>
-            <li><a href="#">{{'HOME.CANCELBOOKING' | translate }}</a></li>
-            <li class="divider"></li>
-            <li><a href="#">{{'HOME.SCHEDULTSEARCH' | translate }}</a></li>
-        </ul>
-    </div>
-    <div>
-    </div>
-    <div style="position: fixed;top: 40%;left: 40%;">
-        <h1 style="color:blue">{{'HOME.WELCOME'|translate}}</h1>
-        <button (click)="enterBuyStatus()">{{'HOME.ENTERCENTER'|translate}}</button>
-    </div>
+        <div id="languageChoice" (click)="translate.use('zh-tw')">{{'HOME.TAIWANESE' | translate }}</div>
+        <div id="languageChoice" (click)="translate.use('en')">{{'HOME.ENGLISH' | translate }}</div>
+        <div class="dropdown" style="display:inline">
+            <button class="btn btn-default dropdown-toggle" style="background-color:#FFBB00;color:	#BB5500;font-size:25px;" type="button" data-toggle="dropdown">
+                {{'HOME.BOOKING' | translate }}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">{{'HOME.SEARCHBOOKING' | translate }}</a></li>
+                <li class="divider"></li>
+                <li><a href="#">{{'HOME.CANCELBOOKING' | translate }}</a></li>
+                <li class="divider"></li>
+                <li><a (click)="navigateSearchSedule()">{{'HOME.SCHEDULTSEARCH' | translate }}</a></li>
+            </ul>
+            <router-outlet></router-outlet>
+        </div>
+        <div>
+        </div>
+        <div style="position: fixed;top: 40%;left: 40%;">
+            <h1 style="color:blue">{{'HOME.WELCOME'|translate}}</h1>
+            <button (click)="enterBuyStatus()">{{'HOME.ENTERCENTER'|translate}}</button>
+        </div>
 </section>
 <section *ngIf="status==Status.Buy">
     <button (click)="backtoStart()">{{'HOME.BACKTOSTART'|translate}}</button><br />

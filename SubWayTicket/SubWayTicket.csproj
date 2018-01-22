@@ -102,6 +102,7 @@
     </Content>
     <Content Include="script\jquery-ui.css" />
     <Content Include="script\jquery-ui.js" />
+    <Content Include="src\app\searchSedule\searchSedule.html" />
     <Content Include="src\tsconfig.json" />
     <Content Include="bs-config.json" />
     <Content Include="package.json" />
@@ -134,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\integer.directive.ts" />
+    <TypeScriptCompile Include="src\app\searchSedule\searchSedule.component.ts" />
+    <TypeScriptCompile Include="src\app\searchSedule\searchSedule.module.ts" />
+    <TypeScriptCompile Include="src\app\searchSedule\searchSedule.service.ts" />
     <TypeScriptCompile Include="src\app\subway.component.ts" />
     <TypeScriptCompile Include="src\app\subway.module.ts" />
     <TypeScriptCompile Include="src\app\subway.service.ts" />

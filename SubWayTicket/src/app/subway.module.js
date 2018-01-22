@@ -12,13 +12,18 @@ var forms_1 = require("@angular/forms");
 var subway_component_1 = require("./subway.component");
 var ng2_translate_1 = require("ng2-translate");
 var integer_directive_1 = require("./integer.directive");
+var router_1 = require("@angular/router");
+var searchSedule_component_1 = require("./searchSedule/searchSedule.component");
+var appRoutes = [
+    { path: 'searchSedule', component: searchSedule_component_1.SearchSeduleComponent }
+];
 var SubWayModule = (function () {
     function SubWayModule() {
     }
     SubWayModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_translate_1.TranslateModule.forRoot()],
-            declarations: [subway_component_1.SubWayComponent, integer_directive_1.IntegerOnlyDirective],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_translate_1.TranslateModule.forRoot(), router_1.RouterModule.forRoot(appRoutes)],
+            declarations: [subway_component_1.SubWayComponent, integer_directive_1.IntegerOnlyDirective, searchSedule_component_1.SearchSeduleComponent],
             bootstrap: [subway_component_1.SubWayComponent]
         })
     ], SubWayModule);

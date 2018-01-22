@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Status, SubWayService, TicketInformation } from './subway.service';
 import { TranslateService } from 'ng2-translate';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'my-app',
@@ -9,7 +10,7 @@ import { TranslateService } from 'ng2-translate';
 })
 export class SubWayComponent implements AfterViewInit
 {
-    constructor(private translate: TranslateService, private subwayService: SubWayService) {
+    constructor(private translate: TranslateService, private subwayService: SubWayService, private router:Router) {
         translate.addLangs(["en", "zh-tw"]);
         translate.setDefaultLang('zh-tw');
         let browserLang = translate.getBrowserLang();
@@ -40,6 +41,9 @@ export class SubWayComponent implements AfterViewInit
             )
     }
 
+    navigateSearchSedule() {
+        this.status = Status.None;
+    }
     enterBuyStatus() { 
         this.status = Status.Buy;
         this.subwayService.asyncGetDestinationList().subscribe(

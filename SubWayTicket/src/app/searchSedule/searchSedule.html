@@ -1,0 +1,40 @@
+﻿<style>
+    *{
+        font-size:32px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    button{
+        border-radius:5px;
+    }
+</style>
+<section *ngIf="status==Status.Start">
+    <div class="col-md-5">
+        <label>出發點</label>
+        <select [(ngModel)]="fromPlace">
+            <option *ngFor="let item of destination;let i=index" [value]="item.destination">{{item.destination}}</option>
+        </select><br />
+    </div>
+    <div class="col-md-7">
+        <div class="col-md-3" *ngFor="let item of destination;let i=index">
+            <input type="radio" name="from" [value]="item.destination" [(ngModel)]="fromPlace">{{item.destination}}
+        </div>
+    </div>
+    <div class="col-md-5">
+        <label>目的地</label>
+        <select [(ngModel)]="toPlace">
+            <option *ngFor="let item of destination;let i=index" [value]="item.destination">{{item.destination}}</option>
+        </select><br />
+    </div>
+    <div class="col-md-7">
+        <div class="col-md-3" *ngFor="let item of destination;let i=index">
+            <input type="radio" name="to" [value]="item.destination" [(ngModel)]="toPlace">{{item.destination}}
+        </div>
+    </div>
+    <label>時間點:</label>
+    <input type="text" (mouseenter)="setDatePicker()">
+    <button class="btn-primary" (click)="findSchedule()">送出</button>
+</section>
+<section *ngIf="status==Status.Search">
+    <h2>Hi</h2>
+    <button (click)="backToSchedule()">回到上一頁</button>
+</section>

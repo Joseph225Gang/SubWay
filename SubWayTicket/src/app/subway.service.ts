@@ -21,6 +21,7 @@ export class SubWayService {
 }
 
 export enum Status {
+    None = 0,
     Start = 1,
     Buy = 2,
     Finish = 3

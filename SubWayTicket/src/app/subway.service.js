@@ -35,6 +35,7 @@ var SubWayService = (function () {
 exports.SubWayService = SubWayService;
 var Status;
 (function (Status) {
+    Status[Status["None"] = 0] = "None";
     Status[Status["Start"] = 1] = "Start";
     Status[Status["Buy"] = 2] = "Buy";
     Status[Status["Finish"] = 3] = "Finish";
