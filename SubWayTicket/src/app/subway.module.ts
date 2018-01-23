@@ -6,6 +6,8 @@ import { TranslateModule } from 'ng2-translate';
 import { IntegerOnlyDirective } from './integer.directive';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchSeduleComponent } from './searchSedule/searchSedule.component';
+import { SearchBookingComponent } from './searchBooking/searchBooking.component';
+import { CancelBookingComponent } from './cancelBooking/cancelBooking.component';
 
 const appRoutes: Routes = [
     {path: 'searchSedule', component: SearchSeduleComponent }
@@ -13,7 +15,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [BrowserModule, FormsModule, TranslateModule.forRoot(), RouterModule.forRoot(appRoutes)],
-    declarations: [SubWayComponent, IntegerOnlyDirective, SearchSeduleComponent],
+    declarations: [SubWayComponent, IntegerOnlyDirective, SearchSeduleComponent, SearchBookingComponent, CancelBookingComponent],
     bootstrap:    [SubWayComponent]
 })
 export class SubWayModule { }

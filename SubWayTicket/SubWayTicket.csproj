@@ -102,6 +102,8 @@
     </Content>
     <Content Include="script\jquery-ui.css" />
     <Content Include="script\jquery-ui.js" />
+    <Content Include="src\app\cancelBooking\cancelBooking.html" />
+    <Content Include="src\app\searchBooking\searchBooking.html" />
     <Content Include="src\app\searchSedule\searchSedule.html" />
     <Content Include="src\tsconfig.json" />
     <Content Include="bs-config.json" />
@@ -134,7 +136,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\cancelBooking\cancelBooking.component.ts" />
+    <TypeScriptCompile Include="src\app\cancelBooking\cancelBooking.module.ts" />
+    <TypeScriptCompile Include="src\app\cancelBooking\cancelBooking.service.ts" />
     <TypeScriptCompile Include="src\app\integer.directive.ts" />
+    <TypeScriptCompile Include="src\app\searchBooking\searchBooking.component.ts" />
+    <TypeScriptCompile Include="src\app\searchBooking\searchBooking.module.ts" />
+    <TypeScriptCompile Include="src\app\searchBooking\searchBooking.service.ts" />
     <TypeScriptCompile Include="src\app\searchSedule\searchSedule.component.ts" />
     <TypeScriptCompile Include="src\app\searchSedule\searchSedule.module.ts" />
     <TypeScriptCompile Include="src\app\searchSedule\searchSedule.service.ts" />

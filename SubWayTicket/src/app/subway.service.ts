@@ -21,10 +21,12 @@ export class SubWayService {
 }
 
 export enum Status {
-    None = 0,
     Start = 1,
     Buy = 2,
-    Finish = 3
+    Finish = 3,
+    Schedule = 4,
+    SearchBooking = 5,
+    CancelBooking = 6
 }
 
 export class TicketInformation {

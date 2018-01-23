@@ -42,8 +42,17 @@ export class SubWayComponent implements AfterViewInit
     }
 
     navigateSearchSedule() {
-        this.status = Status.None;
+        this.status = Status.Schedule;
     }
+
+    navigateSearchBooking() {
+        this.status = Status.SearchBooking;
+    }
+
+    navigateCancelBooking() {
+        this.status = Status.CancelBooking;
+    }
+
     enterBuyStatus() { 
         this.status = Status.Buy;
         this.subwayService.asyncGetDestinationList().subscribe(

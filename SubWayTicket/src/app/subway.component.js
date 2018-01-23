@@ -44,7 +44,13 @@ var SubWayComponent = (function () {
         });
     };
     SubWayComponent.prototype.navigateSearchSedule = function () {
-        this.status = subway_service_1.Status.None;
+        this.status = subway_service_1.Status.Schedule;
+    };
+    SubWayComponent.prototype.navigateSearchBooking = function () {
+        this.status = subway_service_1.Status.SearchBooking;
+    };
+    SubWayComponent.prototype.navigateCancelBooking = function () {
+        this.status = subway_service_1.Status.CancelBooking;
     };
     SubWayComponent.prototype.enterBuyStatus = function () {
         var _this = this;

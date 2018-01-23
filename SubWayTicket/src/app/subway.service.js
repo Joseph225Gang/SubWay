@@ -35,10 +35,12 @@ var SubWayService = (function () {
 exports.SubWayService = SubWayService;
 var Status;
 (function (Status) {
-    Status[Status["None"] = 0] = "None";
     Status[Status["Start"] = 1] = "Start";
     Status[Status["Buy"] = 2] = "Buy";
     Status[Status["Finish"] = 3] = "Finish";
+    Status[Status["Schedule"] = 4] = "Schedule";
+    Status[Status["SearchBooking"] = 5] = "SearchBooking";
+    Status[Status["CancelBooking"] = 6] = "CancelBooking";
 })(Status = exports.Status || (exports.Status = {}));
 var TicketInformation = (function () {
     function TicketInformation() {

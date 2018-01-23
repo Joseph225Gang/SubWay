@@ -24,7 +24,13 @@ input[type=number]::-webkit-outer-spin-button {
         color:white;
     }
 </style>
-<section *ngIf="status==Status.None">
+<section *ngIf="status==Status.CancelBooking">
+    <cancelBooking-app></cancelBooking-app>
+</section>
+<section *ngIf="status==Status.SearchBooking">
+    <searchBooking-app></searchBooking-app>
+</section>
+<section *ngIf="status==Status.Schedule">
     <searchSedule-app></searchSedule-app>
 </section>
 <section *ngIf="status==Status.Start">
@@ -36,9 +42,9 @@ input[type=number]::-webkit-outer-spin-button {
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">{{'HOME.SEARCHBOOKING' | translate }}</a></li>
+                <li><a (click)="navigateSearchBooking()">{{'HOME.SEARCHBOOKING' | translate }}</a></li>
                 <li class="divider"></li>
-                <li><a href="#">{{'HOME.CANCELBOOKING' | translate }}</a></li>
+                <li><a (click)="navigateCancelBooking()">{{'HOME.CANCELBOOKING' | translate }}</a></li>
                 <li class="divider"></li>
                 <li><a (click)="navigateSearchSedule()">{{'HOME.SCHEDULTSEARCH' | translate }}</a></li>
             </ul>
