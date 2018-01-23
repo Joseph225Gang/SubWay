@@ -34,6 +34,7 @@ export class SearchSeduleComponent implements AfterViewInit{
     setDatePicker() {
         $('input').datepicker();
     }
+
     backToSchedule() {
         this.fromPlace = this.destination[0].destination;
         this.toPlace = this.destination[0].destination;
