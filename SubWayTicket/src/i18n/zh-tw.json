@@ -10,6 +10,9 @@
     "BOOKING": "查詢/取消訂票",
     "SEARCHBOOKING": "查詢訂票記錄",
     "CANCELBOOKING": "取消訂票記錄",
-    "SCHEDULTSEARCH":  "時刻表查詢"
+    "SCHEDULTSEARCH": "時刻表查詢",
+    "STARTINGPOINT": "出發點",
+    "DESTINATION": "目的地",
+    "TIME": "時間點"
   }
 }

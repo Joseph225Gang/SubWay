@@ -10,6 +10,9 @@
     "BOOKING": "Search/Cancel Booking",
     "SEARCHBOOKING": "Search Booking record",
     "CANCELBOOKING": "Cancel Booking record",
-    "SCHEDULTSEARCH":  "Search Schedule"
+    "SCHEDULTSEARCH": "Search Schedule",
+    "STARTINGPOINT": "Starting Point",
+    "DESTINATION": "Destination",
+    "TIME": "Time"
   }
 }
