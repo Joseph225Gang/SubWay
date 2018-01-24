@@ -96,6 +96,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\img\train1.jpg" />
+    <Content Include="assets\img\train2.jpg" />
+    <Content Include="assets\img\train3.gif" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
