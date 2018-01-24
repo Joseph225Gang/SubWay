@@ -16,4 +16,12 @@ export class CancelBookingComponent implements AfterViewInit {
     goToStatusResult() {
         this.status = Status.Result;
     }
+
+    removeBooking(data: any) {
+        $("td").unbind("click");
+        $('td').click(function () {
+            let row_index: number = $(this).closest("tr").index();
+            $('tr').eq(row_index + 1).remove();
+        });
+    }
 }

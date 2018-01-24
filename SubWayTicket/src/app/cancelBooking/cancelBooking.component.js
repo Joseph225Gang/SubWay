@@ -18,6 +18,13 @@ var CancelBookingComponent = (function () {
     CancelBookingComponent.prototype.goToStatusResult = function () {
         this.status = cancelBooking_service_1.Status.Result;
     };
+    CancelBookingComponent.prototype.removeBooking = function (data) {
+        $("td").unbind("click");
+        $('td').click(function () {
+            var row_index = $(this).closest("tr").index();
+            $('tr').eq(row_index + 1).remove();
+        });
+    };
     CancelBookingComponent = __decorate([
         core_1.Component({
             selector: 'cancelBooking-app',

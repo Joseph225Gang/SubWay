@@ -25,4 +25,25 @@
     <button class="btn btn-primary" (click)="goToStatusResult()">查詢</button>
 </section>
 <section *ngIf="status==Status.Result">
+    <table class="table table-bordered table-responsive col-md-8">
+        <thead>
+            <tr>
+                <th class="col-md-4">{{'HOME.STARTINGPOINT' | translate }}->{{'HOME.DESTINATION' | translate}}</th>
+                <th class="col-md-4">{{'HOME.TIME' | translate }}</th>
+                <th class="col-md-4">價錢</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-md-4">台北->基隆</td>
+                <td class="col-md-4">2019/02/02&nbsp;&nbsp;8:25AM->9:00AM</td>
+                <td class="col-md-4">$380</td>
+            </tr>
+            <tr>
+                <td class="col-md-4">台北->桃園</td>
+                <td class="col-md-4">2019/02/02&nbsp;&nbsp;8:25AM->9:00AM</td>
+                <td class="col-md-4">$400</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
