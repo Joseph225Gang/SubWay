@@ -6,18 +6,28 @@ import { CancelBookingService, Status } from './cancelBooking.service';
     templateUrl: './cancelBooking.html',
     providers: [CancelBookingService]
 })
-export class CancelBookingComponent implements AfterViewInit {
+export class CancelBookingComponent{
     Status = Status;
     status: Status = Status.Search;
 
-    ngAfterViewInit() {
+    checkValidation() {
+        let errorMessage: string[] = [];
+        if ($('input').eq(0).val() == '')
+            errorMessage.push("請輸入身份證字號");
+        if ($('input').eq(1).val() == '')
+            errorMessage.push("請輸入電腦代碼");
+        return errorMessage.join('\n');   
     }
 
     goToStatusResult() {
-        this.status = Status.Result;
+        let errorMessage = this.checkValidation();
+        if (errorMessage.length == 0)
+            this.status = Status.Result;
+        else
+            alert(errorMessage);
     }
 
-    removeBooking(data: any) {
+    removeBooking() {
         $("td").unbind("click");
         $('td').click(function () {
             let row_index: number = $(this).closest("tr").index();

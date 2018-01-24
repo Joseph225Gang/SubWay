@@ -13,12 +13,22 @@ var CancelBookingComponent = (function () {
         this.Status = cancelBooking_service_1.Status;
         this.status = cancelBooking_service_1.Status.Search;
     }
-    CancelBookingComponent.prototype.ngAfterViewInit = function () {
+    CancelBookingComponent.prototype.checkValidation = function () {
+        var errorMessage = [];
+        if ($('input').eq(0).val() == '')
+            errorMessage.push("請輸入身份證字號");
+        if ($('input').eq(1).val() == '')
+            errorMessage.push("請輸入電腦代碼");
+        return errorMessage.join('\n');
     };
     CancelBookingComponent.prototype.goToStatusResult = function () {
-        this.status = cancelBooking_service_1.Status.Result;
+        var errorMessage = this.checkValidation();
+        if (errorMessage.length == 0)
+            this.status = cancelBooking_service_1.Status.Result;
+        else
+            alert(errorMessage);
     };
-    CancelBookingComponent.prototype.removeBooking = function (data) {
+    CancelBookingComponent.prototype.removeBooking = function () {
         $("td").unbind("click");
         $('td').click(function () {
             var row_index = $(this).closest("tr").index();
