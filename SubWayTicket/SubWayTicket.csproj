@@ -103,8 +103,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="script\jquery-ui.css" />
-    <Content Include="script\jquery-ui.js" />
+    <Content Include="assets\script\jquery-ui.css" />
+    <Content Include="assets\script\jquery-ui.js" />
     <Content Include="src\app\cancelBooking\cancelBooking.html" />
     <Content Include="src\app\searchBooking\searchBooking.html" />
     <Content Include="src\app\searchSedule\searchSedule.html" />
@@ -125,7 +125,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="script\jquery-3.2.1.min.js" />
+    <Content Include="assets\script\jquery-3.2.1.min.js" />
     <Content Include="src\app\subway.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
