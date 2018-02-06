@@ -16,6 +16,7 @@ var router_1 = require("@angular/router");
 var searchSedule_component_1 = require("./searchSedule/searchSedule.component");
 var searchBooking_component_1 = require("./searchBooking/searchBooking.component");
 var cancelBooking_component_1 = require("./cancelBooking/cancelBooking.component");
+var animations_1 = require("@angular/platform-browser/animations");
 var appRoutes = [
     { path: 'searchSedule', component: searchSedule_component_1.SearchSeduleComponent }
 ];
@@ -24,7 +25,7 @@ var SubWayModule = (function () {
     }
     SubWayModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_translate_1.TranslateModule.forRoot(), router_1.RouterModule.forRoot(appRoutes)],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_translate_1.TranslateModule.forRoot(), router_1.RouterModule.forRoot(appRoutes), animations_1.BrowserAnimationsModule],
             declarations: [subway_component_1.SubWayComponent, integer_directive_1.IntegerOnlyDirective, searchSedule_component_1.SearchSeduleComponent, searchBooking_component_1.SearchBookingComponent, cancelBooking_component_1.CancelBookingComponent],
             bootstrap: [subway_component_1.SubWayComponent]
         })

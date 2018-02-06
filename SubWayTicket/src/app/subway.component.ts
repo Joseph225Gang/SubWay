@@ -1,12 +1,27 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit} from '@angular/core';
 import { Status, SubWayService, TicketInformation } from './subway.service';
 import { TranslateService } from 'ng2-translate';
 import { Router } from '@angular/router';
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition
+} from '@angular/animations';
 
 @Component({
     selector: 'my-app',
     templateUrl: './subway.html',
-    providers: [SubWayService]
+    providers: [SubWayService],
+    animations: [
+        trigger('visibilityChanged', [
+            state('shown', style({ opacity: 1})),
+            state('hidden', style({ opacity: 0})),
+            transition('shown => hidden', animate('600ms')),
+            transition('hidden => shown', animate('300ms')),
+        ])
+    ]
 })
 export class SubWayComponent implements AfterViewInit
 {
@@ -28,7 +43,11 @@ export class SubWayComponent implements AfterViewInit
     amount: number = 0;
     totalAmount: number = 0;
     currentLang: string;
+    visibility = 'shown';
 
+    changeOpacity() {
+        this.visibility = this.visibility === 'shown' ? 'hidden' : 'shown';
+    }
     ngAfterViewInit() {
         this.subwayService.asyncGetItineraryPrice().subscribe(
             resp => {

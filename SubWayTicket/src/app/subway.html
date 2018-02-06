@@ -34,8 +34,8 @@ input[type=number]::-webkit-outer-spin-button {
     <searchSedule-app></searchSedule-app>
 </section>
 <section *ngIf="status==Status.Start">
-        <div id="languageChoice" (click)="translate.use('zh-tw')">{{'HOME.TAIWANESE' | translate }}</div>
-        <div id="languageChoice" (click)="translate.use('en')">{{'HOME.ENGLISH' | translate }}</div>
+            <div id="languageChoice" (click)="translate.use('zh-tw')">{{'HOME.TAIWANESE' | translate }}</div>
+            <div id="languageChoice" (click)="translate.use('en')">{{'HOME.ENGLISH' | translate }}</div>
         <div class="dropdown" style="display:inline">
             <button class="btn btn-default dropdown-toggle" style="background-color:#FFBB00;color:	#BB5500;font-size:25px;" type="button" data-toggle="dropdown">
                 {{'HOME.BOOKING' | translate }}
@@ -52,9 +52,11 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
         <div>
         </div>
+    <button (click)="changeOpacity()" class="btn-default">Animation start</button>
     <div class="container">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" [@visibilityChanged]="visibility">
             <!-- Indicators -->
+            <ng-content></ng-content> 
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
